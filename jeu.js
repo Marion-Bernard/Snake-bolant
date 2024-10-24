@@ -96,9 +96,11 @@ function checkDead() {
         gameOver();
     }
 
-    const prevSnake = snake.slice(1)
-    if (prevSnake.includes(snake[0])) {
-        alert('Looser')
+    const body = snake.slice(1)
+    const autoBiten = body.some(segment => segment.x === snake[0].x && segment.y === snake[0].y);
+    
+    if (autoBiten) {
+        gameOver();
     }
 }
 
