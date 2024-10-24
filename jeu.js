@@ -4,7 +4,9 @@ const ctx = canvas.getContext("2d")
 const direction = { x: 1, y: 0 }
 const snake = [{x:20, y:20}]
 
-/*Dessiner le serpent*/
+/***************************/
+/****Dessiner le serpent****/
+/***************************/
 
 function drawSnake() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -14,19 +16,52 @@ function drawSnake() {
     })
 }
 
-/*Déplacer le serpent*/
+/***************************/
+/****Déplacer le serpent****/
+/***************************/
 
-setInterval(moveSnake,200)
 
-function moveSnake() {
-    const newHead = {
-        x: snake[0].x + direction.x*20,
-        y: snake[0].y + direction.y*20
+    setInterval(moveSnake,200)
+
+    function moveSnake() {
+        const newHead = {
+            x: snake[0].x + direction.x*20,
+            y: snake[0].y + direction.y*20
+        }
+    snake.unshift(newHead)
+    snake.pop()
+    drawSnake()
     }
-   snake.unshift(newHead)
-   snake.pop()
-   drawSnake()
-}
+
+/***************************/
+/***Contrôler le serpent****/
+/***************************/
+
+window.addEventListener('keydown', function(event) {
+
+    switch(event.key) {
+
+        case 'ArrowDown' : 
+            console.log('vers le bas')
+        break
+
+        case 'ArrowUp' : 
+            console.log('vers le haut')
+        break
+
+        case 'ArrowRight' : 
+            console.log('vers le haut')
+        break
+
+        case 'ArrowLeft' : 
+            console.log('vers le haut')
+        break
+
+    }
+   
+})
+
+
 
 window.onload = function() {
     drawSnake();
