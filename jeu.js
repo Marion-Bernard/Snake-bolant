@@ -46,10 +46,8 @@ function moveSnake() {
         resetFruitInterval()
         score+=5
         updateScore(score)
-        console.log(snake)
     } else {
         snake.pop()
-        console.log(snake)
     }
 
     snake.unshift(newHead)
