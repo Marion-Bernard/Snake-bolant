@@ -84,6 +84,12 @@ function checkDead() {
         snake[0].y >= canvas.height || snake[0].y < 0) {
         gameOver();
     }
+
+    const prevSnake = snake.slice(1)
+
+    if (prevSnake.includes(snake[0])){
+        alert('Looser')
+    }
 }
 
 const gameOverDiv = document.querySelector('#game-over')
@@ -96,7 +102,6 @@ function gameOver () {
 gameOverDiv.addEventListener('click', function() {
     window.location.href = '/index.html'
 })
-
 
 function test() {
     moveSnake()
